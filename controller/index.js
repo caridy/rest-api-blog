@@ -35,11 +35,12 @@ exports.blog = function (req,res) {
 
 exports.add = function (req,res) {
    var blog = mongoose.model('blogs');
+   var jsonData = JSON.parse(req.body.data);
    newblog = new blog({ 
-   	           title : req.param('title'), 
+   	           title : jsonData.title, 
    	           date : new Date(), 
-   	           autor : req.param('autor'), 
-   	           text : req.param('text')
+   	           autor : jsonData.autor, 
+   	           text : jsonData.text
    	       });
    newblog.save(function (err) {
      if (!err) {
@@ -59,11 +60,12 @@ exports.delete = function (req,res) {
 
 exports.update  = function (req,res) {
    var blog = mongoose.model('blogs');
+   var jsonData = JSON.parse(req.body.data);
    blog.findByIdAndUpdate(req.params.id,{
-   	           title : req.param('title'), 
-   	           date : new Date(), 
-   	           autor : req.param('autor'), 
-   	           text : req.param('text')
+   	           title : jsonData.title, 
+               date : new Date(), 
+               autor : jsonData.autor, 
+               text : jsonData.text
    }, function (err) {
        if (!err) {
           res.send({ "message" : "blog with ID:" + req.params.id + " updated." });

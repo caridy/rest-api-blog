@@ -7,7 +7,7 @@ var BlogSchema = mongoose.Schema({
     text: String
 });
 
-//mongoose.connect('mongodb://localhost/blog');
+mongoose.connect('mongodb://mighty-reef-6784.herokuapp.com//blog');
 
 exports.list = function(req, res) {
     var blogs = mongoose.model('blogs');

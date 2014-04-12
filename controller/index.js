@@ -6,9 +6,9 @@ var BlogSchema = mongoose.Schema({
     text: String
 });
 // set mongoUri
-var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
-mongoose.connect(mongoUri);
-var myblogs = mongoose.model('blogs', BlogSchema);
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/blogs';
+mongoose.connect(mongoUri)
+mongoose.model('blogs', BlogSchema);
 exports.list = function(req, res) {
     var blogs = mongoose.model('blogs');
     blogs.find(function(err, blogs) {
@@ -39,7 +39,7 @@ exports.add = function(req, res) {
             res.send({
                 "message": "new blog added"
             });
-        } else res.send(null);
+        } else res.send(err);
     });
 }
 exports.delete = function(req, res) {

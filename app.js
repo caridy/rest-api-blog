@@ -4,7 +4,7 @@
  */
 
 var express = require('express');
-var routes = require('./controller');
+//var routes = require('./controller');
 var http = require('http');
 var path = require('path');
 
@@ -33,12 +33,15 @@ app.all('/*', function(req, res, next) {
   next();
 });
 
+app.get('/',function (req,res) { res.send("Hello world!!");});
+
+/*
 app.get('/blogs', routes.list);
 app.get('/blog/:id',routes.blog);
 app.post('/blog',routes.add);
 app.delete('/blog/:id',routes.delete);
 app.put('/blog/:id',routes.update);
-
+*/
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

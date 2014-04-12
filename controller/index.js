@@ -5,8 +5,10 @@ var BlogSchema = mongoose.Schema({
     autor: String,
     text: String
 });
+// set mongoUri
 var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
 mongoose.connect(mongoUri);
+var myblogs = mongoose.model('blogs', UserSchema);
 exports.list = function(req, res) {
     var blogs = mongoose.model('blogs');
     blogs.find(function(err, blogs) {

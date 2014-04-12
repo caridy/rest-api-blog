@@ -7,7 +7,7 @@ var BlogSchema = mongoose.Schema({
     text: String
 });
 
-mongoose.connect('mongodb://localhost/blog');
+//mongoose.connect('mongodb://localhost/blog');
 
 exports.list = function(req, res) {
     var blogs = mongoose.model('blogs');

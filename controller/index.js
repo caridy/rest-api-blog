@@ -1,4 +1,3 @@
-
 var mongoose = require('mongoose');
 var BlogSchema = mongoose.Schema({
     title: String,
@@ -6,9 +5,8 @@ var BlogSchema = mongoose.Schema({
     autor: String,
     text: String
 });
-
-mongoose.connect('mongodb://mighty-reef-6784.herokuapp.com//blog');
-
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
+mongoose.connect(mongoUri);
 exports.list = function(req, res) {
     var blogs = mongoose.model('blogs');
     blogs.find(function(err, blogs) {

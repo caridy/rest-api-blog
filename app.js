@@ -34,7 +34,7 @@ app.all('/*', function(req, res, next) {
   next();
 });
 
-app.get('/',function (req,res) { res.send("Hello world!!");});
+app.get('/',function (req,res) { res.sendfile("README.md");});
 app.get('/blogs', routes.list);
 app.get('/blog/:id',routes.blog);
 app.post('/blog',routes.add);

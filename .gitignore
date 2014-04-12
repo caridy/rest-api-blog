@@ -1,2 +1,5 @@
+# Dependency directory
 node_modules
+# sublime project
 rest-api-blog.sublime-project
+rest-api-blog.sublime-workspace

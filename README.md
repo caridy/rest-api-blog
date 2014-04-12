@@ -1,4 +1,9 @@
-rest-api-blog
-=============
+<h1>Rest Api for a system BLOG</h1>
 
-Simple Rest Api for a blog
+<h4>Dependencies</h4>
+<ul>
+   <li>Express</li>
+   <li>Mongoose</li>
+</ul>
+
+
